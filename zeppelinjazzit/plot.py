@@ -2,11 +2,12 @@
 import datetime
 import matplotlib
 import matplotlib.pyplot as plt
+import sys
 
 with open('data') as f:
     raw_data = f.readlines()
 
-data = [l.split() for l in raw_data]
+data = [l.split() for l in raw_data if len(l.split()) == 3]
 dogs = set([l[0] for l in data])
 
 for dog in dogs:
@@ -18,4 +19,8 @@ for dog in dogs:
 plt.legend()
 plt.xlim(0)
 plt.ylim(0)
-plt.savefig('painot.png')
+if len(sys.argv) > 1:
+    plt.savefig(sys.argv[1])
+else:
+    plt.show()
+
