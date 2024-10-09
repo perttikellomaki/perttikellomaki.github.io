@@ -18,5 +18,10 @@ jobs:
           ls -lR
           git add painot.png
           git commit -m "Update painot.png"
+          cd ../santanajazzit
+          ./plot.py painot.png
+          ls -lR
+          git add painot.png
+          git commit -m "Update painot.png"
           git push origin main
       - run: echo "🍏 This job's status is ${{ job.status }}."
